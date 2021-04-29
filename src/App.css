@@ -1,38 +1,386 @@
-.App {
-  text-align: center;
+/* Fonts Helper
+font-family: 'Manrope', sans-serif;
+font-family: 'Roboto', sans-serif; 
+font-family: 'Coda Caption', sans-serif;*/
+
+html {
+	scroll-behavior: smooth;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	/* cursor: default; */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a {
+	text-decoration: none;
+	color: inherit;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+a:-webkit-any-link {
+	text-decoration: none;
+	color: inherit;
 }
 
-.App-link {
-  color: #61dafb;
+nav {
+	background-color: #f5f5f5;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+nav .logo h1 a {
+	font-weight: 800;
+	font-family: 'Coda Caption', sans-serif;
+	cursor: pointer;
+	color: #12171a;
+}
+
+nav ul {
+	list-style-type: none;
+	color: #889099;
+}
+
+nav .main_menu ul li {
+	display: inline;
+	cursor: pointer;
+	padding: 0 1rem;
+	margin: 0 1rem;
+}
+
+nav .main_menu ul li a {
+	font-weight: 400;
+}
+
+nav ul li:hover {
+	color: #1a1d20;
+}
+
+.active {
+	color: #1a1d20;
+}
+
+nav .sub-menu ul li {
+	display: inline;
+	cursor: pointer;
+	font-size: 1.2rem;
+	margin: 0 1rem;
+	color: #69747f;
+}
+
+nav .sub-menu ul li:hover {
+	color: #1a1d20;
+}
+
+/* slider css */
+.slider {
+	background-color: #f5f5f5;
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	padding: 0 20% 3rem 15%;
+}
+
+.slider-description {
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	cursor: default;
+}
+
+.slider-description h2 {
+	color: #89826c;
+	text-transform: uppercase;
+	font-size: 1rem;
+	margin-bottom: 1rem;
+}
+
+.slider-description h1 {
+	color: #1a1d20;
+	font-size: 4rem;
+	margin-bottom: 2rem;
+	font-family: 'Manrope', sans-serif;
+	font-weight: 600;
+}
+
+.slider-description button {
+	background-color: transparent;
+	padding: 0.75rem 1rem;
+	border-radius: 0.5rem;
+	width: max-content;
+	border: 1px solid #bbc0c4;
+	font-size: 1rem;
+	color: #69747f;
+	cursor: pointer;
+	transition: background-color 0.5s ease-out;
+}
+
+.slider-description button:hover {
+	border: 1px solid #3b3564;
+	background-color: #3b3564;
+	color: whitesmoke;
+}
+
+.slider-images {
+	width: 60%;
+}
+
+.slider-images img {
+	width: 100%;
+}
+
+/* product card */
+
+.product-card {
+	width: 100%;
+	transition: padding 0.2s ease-in;
+}
+
+.product-card:hover {
+	padding: 2px;
+}
+
+.product-card img {
+	width: 100%;
+}
+
+.product-card h1 {
+	font-family: 'Manrope', sans-serif;
+	font-weight: 600;
+	font-size: 1.2rem;
+	margin: 0.5rem 0;
+	color: #1a1d20;
+}
+
+.product-card h3 {
+	font-family: 'Manrope', sans-serif;
+	font-weight: 500;
+	font-size: 1.2rem;
+	color: #69747f;
+	margin-bottom: 0.5rem;
+}
+
+.product-card button {
+	background-color: transparent;
+	padding: 0.75rem 1rem;
+	border-radius: 0.5rem;
+	width: 100%;
+	border: 1px solid #bbc0c4;
+	font-size: 1rem;
+	color: #69747f;
+	cursor: pointer;
+	transition: background-color 0.5s ease-out;
+}
+
+.product-card button:hover {
+	border: 1px solid #3b3564;
+	background-color: #3b3564;
+	color: whitesmoke;
+}
+/* Trends */
+.trend {
+	padding: 2rem 10%;
+}
+
+.trend .trend-heading {
+	font-family: 'Manrope', sans-serif;
+	font-weight: 600;
+	margin-bottom: 2rem;
+	padding-left: 1rem;
+	font-size: 1.2rem;
+	color: #89826c;
+	cursor: default;
+}
+
+.trend .showcase {
+	display: grid;
+	grid-gap: 2rem;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+/* footer */
+footer {
+	background-color: #f7f5f2;
+	color: #69747f;
+}
+
+footer .fmain {
+	padding: 2rem 15%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.fmain h3 {
+	font-family: 'Manrope', sans-serif;
+	font-weight: 600;
+	color: #12171a;
+	font-size: 1rem;
+	margin-bottom: 1rem;
+	cursor: default;
+}
+
+.fmain h4 {
+	padding: 0.25rem;
+	cursor: default;
+}
+
+.fmain .footer-logo {
+	font-family: 'Coda Caption', sans-serif;
+}
+footer .copy {
+	text-align: center;
+	padding: 2rem;
+	border-top: 1px solid #69747f4b;
+	cursor: default;
+}
+
+.social-link {
+	color: #69747f;
+}
+
+/* category */
+.category {
+	margin: 2rem 10%;
+}
+
+.category .category-heading {
+	color: #1a1d20;
+	font-family: 'Manrope', sans-serif;
+	text-align: center;
+	margin-bottom: 3rem;
+	font-weight: 600;
+	cursor: default;
+}
+
+.category .product-holder {
+	display: grid;
+	grid-gap: 2rem;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+/* product detail page */
+.product-detail {
+	padding: 4rem 10%;
+	display: grid;
+	grid-gap: 2rem;
+	grid-template-columns: 0.55fr 0.45fr;
+}
+
+.product-detail .img-holder {
+	border: 1px solid #e8e9eb;
+	padding: 1rem;
+	border-radius: 5px;
+}
+
+.bread-crumbs {
+	margin-bottom: 2rem;
+}
+
+.bread-crumbs h3,
+a {
+	font-family: Manrope, 'sans-serif';
+	color: #69747f;
+	font-weight: 300;
+	font-size: 1rem;
+}
+
+.bread-crumbs a:hover {
+	color: #23272b;
+}
+
+.product-detail h2 {
+	font-family: Manrope, 'sans-serif';
+	font-weight: 600;
+	font-size: 2rem;
+	margin-bottom: 2rem;
+}
+
+.product-detail h3 {
+	font-family: Manrope, 'sans-serif';
+	font-weight: 400;
+	color: #69747f;
+	margin-bottom: 1rem;
+}
+
+.product-detail h4 {
+	font-family: Roboto, 'sans-serif';
+	font-weight: 300;
+	color: #69747f;
+	margin-bottom: 1rem;
+}
+
+.product-detail h4 a {
+	color: #641d85;
+}
+
+.product-detail h4 a:hover {
+	color: #190820;
+}
+
+.product-detail button {
+	background-color: transparent;
+	padding: 0.75rem 1rem;
+	border-radius: 0.5rem;
+	width: max-content;
+	border: 1px solid #bbc0c4;
+	font-size: 1rem;
+	color: #69747f;
+	cursor: pointer;
+	transition: background-color 0.5s ease-out;
+}
+
+.product-detail button:hover {
+	border: 1px solid #3b3564;
+	background-color: #3b3564;
+	color: whitesmoke;
+}
+
+/* popup */
+.popup {
+	padding: 3rem;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 4;
+	border: 1px solid #e8e9eb;
+	border-radius: 5px;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+
+.popup h2 {
+	text-align: center;
+	font-weight: 600;
+	font-family: 'Manrope', sans-serif;
+	margin-bottom: 2rem;
+}
+
+.popup button {
+	border: 1px solid #3b3564;
+	background-color: #3b3564;
+	color: whitesmoke;
+	padding: 0.75rem 1rem;
+	border-radius: 0.5rem;
+	width: max-content;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background-color 0.5s ease-out;
+}
+
+.popup button:hover {
+	background-color: transparent;
+	border: 1px solid #bbc0c4;
+	color: #69747f;
 }

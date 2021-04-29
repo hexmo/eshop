@@ -1,25 +1,79 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { Switch, Route } from 'react-router-dom';
+
+import productsListData from './data';
 import './App.css';
+import Nav from './components/Nav';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import Category from './pages/Category';
+import Detail from './pages/Detail';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	//hooks
+	const [productsList] = useState(productsListData);
+
+	//filtering product into different categories
+	//mac
+	const mac = productsList.filter((product) => {
+		return product.type === 'mac';
+	});
+
+	mac.sort(function (a, b) {
+		return 0.5 - Math.random();
+	});
+
+	//iphone
+	const iphone = productsList.filter((product) => {
+		return product.type === 'iphone';
+	});
+
+	iphone.sort(function (a, b) {
+		return 0.5 - Math.random();
+	});
+	//ipad
+	const ipad = productsList.filter((product) => {
+		return product.type === 'ipad';
+	});
+	ipad.sort(function (a, b) {
+		return 0.5 - Math.random();
+	});
+	//watch
+	const watch = productsList.filter((product) => {
+		return product.type === 'watch';
+	});
+	watch.sort(function (a, b) {
+		return 0.5 - Math.random();
+	});
+	return (
+		<div>
+			<Nav />
+			<Switch>
+				<Route exact path='/'>
+					<Home productsList={productsList} />
+				</Route>
+				<Route exact path='/mac'>
+					<Category categoryName={'Mac'} products={mac} />
+				</Route>
+				<Route exact path='/iphone'>
+					<Category categoryName={'iPhone'} products={iphone} />
+				</Route>
+				<Route exact path='/ipad'>
+					<Category categoryName={'iPad'} products={ipad} />
+				</Route>
+				<Route exact path='/watch'>
+					<Category categoryName={'Watch'} products={watch} />
+				</Route>
+				<Route path='/:id/:id'>
+					<Detail productsList={productsList} />
+				</Route>
+			</Switch>
+
+			<Footer />
+
+			{/* <Category categoryName={'mac'} products={mac} /> */}
+		</div>
+	);
 }
 
 export default App;
