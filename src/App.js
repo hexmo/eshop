@@ -3,8 +3,10 @@ import { Switch, Route } from 'react-router-dom';
 
 import productsListData from './data';
 import './App.css';
+import './Mobile.css';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
+import Accessibility from './components/Accessibility';
 import Home from './pages/Home';
 import Category from './pages/Category';
 import Detail from './pages/Detail';
@@ -68,7 +70,7 @@ function App() {
 					<Detail productsList={productsList} />
 				</Route>
 			</Switch>
-
+			<Accessibility />
 			<Footer />
 
 			{/* <Category categoryName={'mac'} products={mac} /> */}
