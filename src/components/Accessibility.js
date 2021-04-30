@@ -20,12 +20,15 @@ const Accessibility = () => {
 	//invertion
 	const head = document.getElementsByTagName('head')[0];
 	const style = document.createElement('style');
-	const body = document.getElementsByTagName('body')[0];
+	// const body = document.getElementsByTagName('body')[0];
+	// console.log('Your screen resolution is: ' + window.screen.availWidth);
+	// const viewport_meta = document.getElementById('viewport-meta');
 
 	// states
 	const [isInverted, setIsInverted] = useState(false);
 	const [isMenuOn, setIsMenuOn] = useState(false);
-	const [zoomLevel, setZoomLevel] = useState(16);
+	// const [zoomLevel, setZoomLevel] = useState(16);
+	const [zoomLevel, setZoomLevel] = useState(1.0);
 
 	//menu change handler
 	const accessibilityHandler = () => {
@@ -49,15 +52,14 @@ const Accessibility = () => {
 	};
 
 	// zoom handler
-	const addZoom = () => {
-		setZoomLevel(zoomLevel + 4);
-		console.log(zoomLevel);
-		body.style.fontSize = zoomLevel + 'px';
+	const reduceZoom = () => {
+		setZoomLevel(zoomLevel - 0.05);
+		document.body.style.zoom = zoomLevel;
 	};
 
-	const reduceZoom = () => {
-		setZoomLevel(zoomLevel - 4);
-		body.style.fontSize = zoomLevel + 'px';
+	const addZoom = () => {
+		setZoomLevel(zoomLevel + 0.05);
+		document.body.style.zoom = zoomLevel;
 	};
 
 	return (

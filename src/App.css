@@ -13,7 +13,6 @@ html {
 	box-sizing: border-box;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 400;
-	/* cursor: default; */
 }
 
 body {
@@ -60,6 +59,7 @@ nav .main_menu ul li {
 
 nav .main_menu ul li a {
 	font-weight: 400;
+	font-size: 1rem;
 }
 
 nav ul li:hover {
