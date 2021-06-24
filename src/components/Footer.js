@@ -40,7 +40,7 @@ const Footer = () => {
 				</div>
 			</div>
 			<div className='copy'>
-				<h4>&copy; 2021 - eshop by Alin Dangi</h4>
+				<h4>&copy; 2021 - eshop by Mohit Acharya</h4>
 			</div>
 		</footer>
 	);

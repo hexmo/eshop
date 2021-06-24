@@ -11,11 +11,6 @@ import {
 import FadeIn from 'react-fade-in';
 
 const Accessibility = () => {
-	const css =
-		'html {-webkit-filter: invert(100%);' +
-		'-moz-filter: invert(100%);' +
-		'-o-filter: invert(100%);' +
-		'-ms-filter: invert(100%); }';
 
 	//invertion
 	const head = document.getElementsByTagName('head')[0];
@@ -38,18 +33,6 @@ const Accessibility = () => {
 		setIsMenuOn(!isMenuOn);
 	};
 
-	// https://stackoverflow.com/questions/4766201/javascript-invert-color-on-all-elements-of-a-page
-	const invertedHandler = () => {
-		if (!isInverted) {
-			style.appendChild(document.createTextNode(css));
-			head.appendChild(style);
-		} else {
-			window.location.reload(false);
-			setIsMenuOn(true);
-		}
-
-		setIsInverted(!isInverted);
-	};
 
 	// zoom handler
 	const reduceZoom = () => {
@@ -74,19 +57,6 @@ const Accessibility = () => {
 								icon={faSearchMinus}
 								onClick={reduceZoom}
 							/>,
-							isInverted ? (
-								<FontAwesomeIcon
-									key={3}
-									icon={faSun}
-									onClick={invertedHandler}
-								/>
-							) : (
-								<FontAwesomeIcon
-									key={3}
-									icon={faMoon}
-									onClick={invertedHandler}
-								/>
-							),
 					  ]
 					: ''}
 			</FadeIn>
